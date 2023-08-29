@@ -28,7 +28,7 @@ class Login extends CI_Controller {
                     "person_mail"        => $data->person_mail
                 ];
                 $this->session->set_userdata($session_user_data);
-                echo "Login Success !!!!";
+                redirect("/Home/index");
             }
         }else{
             redirect("/Login/index");
