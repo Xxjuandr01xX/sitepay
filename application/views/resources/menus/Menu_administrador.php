@@ -36,7 +36,7 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Opciones:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Usuarios</a>
+                        <a class="collapse-item" href="<?php echo base_url(); ?>index.php/Usuarios/index">Usuarios</a>
                         <a class="collapse-item" href="utilities-border.html">Metodos de pago</a>
                         <a class="collapse-item" href="utilities-border.html">Correo Electronico</a>
                     </div>
@@ -46,19 +46,4 @@
             <hr class="sidebar-divider">
         </ul>
         <!-- End of Sidebar -->
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
-            <!-- Main Content -->
-            <div id="content">
-                <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-                    <!-- Sidebar Toggle (Topbar) -->
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                        <i class="fa fa-bars"></i>
-                    </button>
-                    <!-- Topbar Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <div class="topbar-divider d-none d-sm-block"></div>
-                    </ul>
-                </nav>
-                <!-- End of Topbar -->
+        
