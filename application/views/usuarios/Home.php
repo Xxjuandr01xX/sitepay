@@ -46,7 +46,6 @@
                             <tr class = "text-center">
                                 <td><b>Nro</b></td>
                                 <td>Nombre y Apellido</td>
-                                <td>Email</td>
                                 <td>Permisos</td>
                                 <td>Opciones</td>
                             </tr>
