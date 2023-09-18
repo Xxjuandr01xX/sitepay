@@ -28,43 +28,28 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">Lista de Usuarios</h1>
+    <h1 class="h3 mb-4 text-gray-800">Eliminar Usuario</h1>
     <div class="card rounded-0 bg-light shadows">
         <div class="card-body">
             <div class="row clearfix d-flex justify-content-end">
-                <div class="col-3">
-                    <a href = "<?php echo base_url(); ?>index.php/Usuarios/add" class = "w-100 btn btn-warning rounded-0">
-                        <i class = "fa fa-plus"></i> Agregar Usuario
-                    </a>
-                </div>
+                
             </div>
             <div class="row clearfix d-flex justify-content-center">
-                <div class="col-12 col-md-12 col-xs-12 table-responsive">
-                    <table class = "table table-stripped table-hover w-100" id = "load-table-users">
-                        <thead class = "bg-warning text-dark">
-                            <tr>
-                                <td class = "text-center"><b>Nro</b></td>
-                                <td>Nombre y Apellido</td>
-                                <td class = "text-center">Opciones</td>
-                            </tr>
-                        </thead>
-                        <tbody >
-                            <?php $x = 0; foreach($data->result() as $file){ $x++; ?>
-                                <tr>
-                                    <td class = "text-center">
-                                        <b><?php echo $x; ?></b>
-                                    </td>
-                                    <td><?php echo $file->person_name." ".$file->person_last_name; ?></td>
-                                    <td class = "text-center">
-                                        <div class = "btn-group">
-                                            <a href="<?php echo base_url(); ?>index.php/Usuarios/del_usuario/<?php echo $file->id_user; ?>" class = "btn btn-sm btn-primary"><i class = "fa fa-trash"></i></a>
-                                            <a href="<?php echo base_url(); ?>index.php/Usuarios/edit_usuario/<?php echo $file->id_user; ?>" class = "btn btn-sm btn-primary"><i class = "fa fa-edit"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                            <?php } ?>
-                        </tbody>
-                    </table>
+                <div class="col-12 col-md-12 col-xs-12 ">
+                    <form action="<?php echo base_url(); ?>index.php/Usuarios/drop_user/<?php echo $id;?>" method = "POST">
+                        <div class = "alert alert-danger p-4 w-100" role = "alert">
+                            <?php 
+                                echo $msg." ".$data;
+                            ?>
+                            <br>
+                            <br>
+                            <br>
+                            <button type = "submit" class = "btn btn-danger rounded-0 p-2">
+                                <span class = "fa fa-trash"></span>
+                                Eliminar
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

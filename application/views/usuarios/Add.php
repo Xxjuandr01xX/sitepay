@@ -40,7 +40,7 @@
     <div class="card rounded-0 bg-light shadows">
         <div class="card-body">
             <div class="row clearfix d-flex justify-content-center">
-                <div class="col-12 col-md-12 col-xs-12 table-responsive">
+                <div class="col-10 col-md-10 col-xs-10">
                 <form action = "<?php echo base_url(); ?>index.php/Usuarios/insert_user" method = "POST">
                     <div class="input-group mb-3">
                         <label for="" class="input-group-text">

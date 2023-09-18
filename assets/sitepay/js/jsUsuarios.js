@@ -10,8 +10,12 @@ $(document).ready(function(){
 });
 
 let inicializar_tabla_usuarios = function(){
-
+    $("#load-table-users").DataTable({
+        "responsive" : true
+    });
 }
+
+
 
 let inicializar_inputs = function(){
     $("#dni_us").inputmask({"mask" : "9{1,10}"});

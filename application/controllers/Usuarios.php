@@ -11,8 +11,11 @@ class Usuarios extends CI_Controller {
     public function index(){
         $this->load->view("resources/head");
         if($this->session->userdata("user_rol") == 1){
+            $this->load->model("Usuarios_model");
             $this->load->view("resources/menus/menu_administrador");
-            $this->load->view("usuarios/home");
+            $this->load->view("usuarios/home",[
+                "data" => $this->Usuarios_model->get_data_table_usuarios()
+            ]);
         }else{
             redirect("/Login/index");
         }
@@ -53,6 +56,26 @@ class Usuarios extends CI_Controller {
         }else{
             redirect("/Login/index");
         }
+    }
+    public function del_usuario($id_usuario){
+        /**
+         * Ventana para mostrar datos del usuario.
+         */
+        $this->load->view("resources/head");
+        if($this->session->userdata("user_rol") == 1){
+            $this->load->model("Usuarios_model");
+            $this->load->view("resources/menus/menu_administrador");
+            $this->load->view("usuarios/delete", [
+                "msg"  => "Esta seguro que desea eliminar a ",
+                "data" => $this->Usuarios_model->get_data_user($id_usuario),
+                "id"   => $id_usuario
+            ]);
+        }else{
+            redirect("/Login/index");
+        }
+    }
+    public function drop_user($id_usuario){
+        echo $id_usuario;
     }
     public function insert_user(){
         $nac = $this->input->post("sel_nac"); //@var nac, id de la dacionalidad.

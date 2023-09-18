@@ -15,6 +15,15 @@ class Usuarios_model extends CI_Model
     public function get_roles(){
         return $this->db->get("pay_rol");
     }
+    public function get_data_user($id_usuario){
+        $resp = "false";
+        foreach($this->db->get_where("pay_cuenta", ["id" => $id_usuario])->result() as $dta_user){
+            foreach ($this->db->get_where("pay_persona", ["id" => $dta_user->id_persona_fk])->result() as $dta_pers) {
+                $resp = $dta_pers->nombre." ".$dta_pers->apellido." Correo Electronico: ".$dta_pers->mail;
+            }
+        }
+        return $resp;
+    }
     /**
      * Conversion de formato de fecha de inputs
      */
@@ -81,6 +90,10 @@ class Usuarios_model extends CI_Model
         }else{
             return false;
         }
+    }
+    public function get_data_table_usuarios(){
+        return $this->db->query("SELECT a.nombre    AS 'person_name', a.apellido  AS 'person_last_name', b.id_rol_fk AS 'id_rol_fk' , b.id        AS 'id_user'
+        FROM pay_persona a INNER JOIN pay_cuenta b ON a.id=b.id_persona_fk;");
     }
 }
 
